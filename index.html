@@ -13,37 +13,50 @@ body{
     color:#fff;
 }
 
-/* HEADER */
-header{
-    background:#000814;
-    padding:15px 30px;
-    text-align:center;
+/* ===== SLIDER ===== */
+.slider{
+    width:100%;
+    height:420px;
+    position:relative;
+    overflow:hidden;
 }
-header h1{
-    margin:0;
-    color:#00b4ff;
+.slide{
+    width:100%;
+    height:420px;
+    position:absolute;
+    object-fit:cover;
+    opacity:0;
+    animation:slideShow 9s infinite;
+}
+.slide:nth-child(1){animation-delay:0s;}
+.slide:nth-child(2){animation-delay:3s;}
+.slide:nth-child(3){animation-delay:6s;}
+
+@keyframes slideShow{
+    0%{opacity:0;}
+    10%{opacity:1;}
+    30%{opacity:1;}
+    40%{opacity:0;}
+    100%{opacity:0;}
 }
 
-/* HERO WITH IMAGE */
-.hero{
-    height:420px;
-    background: url("banner.jpg") no-repeat center center/cover;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-.hero-box{
+/* HERO TEXT */
+.hero-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
     background:rgba(0,0,0,0.65);
     padding:40px;
     border-radius:12px;
+    text-align:center;
 }
-.hero-box h2{
+.hero-text h2{
     color:#00e5ff;
     font-size:38px;
     margin:0 0 10px;
 }
-.hero-box p{
+.hero-text p{
     color:#ddd;
 }
 
@@ -78,63 +91,71 @@ footer{
 
 <body>
 
-<header>
-    <h1>Vishwjeet Technical Solution</h1>
-</header>
+<!-- ===== IMAGE SLIDER ===== -->
+<div class="slider">
+    <img src="banner.jpg" class="slide">
+    <img src="photo1.jpg" class="slide">
+    <img src="photo2.jpg" class="slide">
 
-<section class="hero">
-    <div class="hero-box">
+    <div class="hero-text">
         <h2>Vishwjeet Technical Solution</h2>
         <p>Electrical | Electronics | Website | Technical Services</p>
     </div>
-</section>
+</div>
 
+<!-- ===== SERVICES ===== -->
 <section class="section">
     <h3>Our Services</h3>
     <div class="cards">
+
         <div class="card">
-    <h4>⚡ Electrical Solutions</h4>
-    <ul style="text-align:left; padding-left:18px; line-height:1.6;">
-        <li>Home & Office Wiring</li>
-        <li>Electrical Installation</li>
-        <li>Switch & Socket Repair</li>
-        <li>Lighting Solutions</li>
-        <li>Maintenance & Support</li>
-    </ul>
-</div>
+            <h4>⚡ Electrical Solutions</h4>
+            <ul style="text-align:left; padding-left:18px; line-height:1.6;">
+                <li>Home & Office Wiring</li>
+                <li>Electrical Installation</li>
+                <li>Switch & Socket Repair</li>
+                <li>Lighting Solutions</li>
+                <li>Maintenance & Support</li>
+            </ul>
+        </div>
+
         <div class="card">
-    <h4>🔧 Electronics Repair</h4>
-    <ul style="text-align:left; padding-left:18px; line-height:1.6;">
-        <li>Mobile Repairing</li>
-        <li>LED / LCD TV Repair</li>
-        <li>Inverter & UPS Repair</li>
-        <li>Fan, Iron & Home Appliances</li>
-        <li>Circuit Board Repair</li>
-    </ul>
-</div>
+            <h4>🔧 Electronics Repair</h4>
+            <ul style="text-align:left; padding-left:18px; line-height:1.6;">
+                <li>Mobile Repairing</li>
+                <li>LED / LCD TV Repair</li>
+                <li>Inverter & UPS Repair</li>
+                <li>Fan & Home Appliances</li>
+                <li>Circuit Board Repair</li>
+            </ul>
+        </div>
+
         <div class="card">
-    <h4>💻 Website Development</h4>
-    <ul style="text-align:left; padding-left:18px; line-height:1.6;">
-        <li>Static & Dynamic Website</li>
-        <li>Business Website Design</li>
-        <li>Responsive (Mobile Friendly)</li>
-        <li>HTML, CSS, Basic JavaScript</li>
-        <li>Website Maintenance</li>
-    </ul>
-</div>
+            <h4>💻 Website Development</h4>
+            <ul style="text-align:left; padding-left:18px; line-height:1.6;">
+                <li>Static & Dynamic Website</li>
+                <li>Business Website</li>
+                <li>Responsive Design</li>
+                <li>HTML, CSS, JS</li>
+                <li>Website Maintenance</li>
+            </ul>
+        </div>
+
         <div class="card">
-    <h4>🛠 Technical Support</h4>
-    <ul style="text-align:left; padding-left:18px; line-height:1.6;">
-        <li>Computer & Laptop Support</li>
-        <li>Software Installation</li>
-        <li>Network & Internet Issues</li>
-        <li>On-site & Remote Support</li>
-        <li>24×7 Technical Assistance</li>
-    </ul>
-</div>
+            <h4>🛠 Technical Support</h4>
+            <ul style="text-align:left; padding-left:18px; line-height:1.6;">
+                <li>Computer & Laptop Support</li>
+                <li>Software Installation</li>
+                <li>Network Issues</li>
+                <li>Remote Support</li>
+                <li>24×7 Assistance</li>
+            </ul>
+        </div>
+
     </div>
 </section>
 
+<!-- ===== YOUTUBE ===== -->
 <section class="section">
     <h3>Our YouTube Channel</h3>
 
@@ -146,6 +167,7 @@ footer{
            vishwjeettechnicalinfo
         </a>
     </p>
+
     <a href="https://www.youtube.com/@vishwjeettechnicalinfo82"
        target="_blank"
        style="
@@ -157,8 +179,7 @@ footer{
         text-decoration:none;
         border-radius:30px;
         font-size:16px;
-        font-weight:bold;
-       ">
+        font-weight:bold;">
        🔔 Subscribe on YouTube
     </a>
 
@@ -166,6 +187,7 @@ footer{
         Electrical • Electronics • Technical Videos
     </p>
 </section>
+
 <footer>
     © 2026 Vishwjeet Technical Solution | All Rights Reserved
 </footer>
